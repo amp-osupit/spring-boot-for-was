@@ -2,6 +2,7 @@ package au.com.amp.esi.test.springboot.config;
 
 import au.com.amp.esi.test.springboot.web.dispatchers.ds0.DS0Config;
 import au.com.amp.esi.test.springboot.web.dispatchers.ds1.DS1Config;
+import au.com.amp.esi.test.springboot.web.dispatchers.root.RootConfig;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,11 @@ import static au.com.amp.esi.spring.SpringWebHelper.createServletRegistrationBea
 @Configuration
 public class WebConfig {
 
+
+	@Bean
+	public ServletRegistrationBean rootContextDs(){
+		return createServletRegistrationBean(RootConfig.class, "dispatcherServlet", "/");
+	}
 
 	@Bean
 	public ServletRegistrationBean ds0(){

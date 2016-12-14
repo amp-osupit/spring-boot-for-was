@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 @Import({
 		ExtPropertyConfig.class, //load external properties
 		SharedBeanConfig.class, // set up shared beans
-		WebConfig.class, //set (non-root) dispatchers servlets
+		WebConfig.class, //set web beans (e.g. dispatcher servlets)
 })
 public class AppConfig {
 
