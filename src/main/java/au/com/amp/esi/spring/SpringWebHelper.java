@@ -7,7 +7,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 public class SpringWebHelper {
 
 	public static  ServletRegistrationBean createServletRegistrationBean(Class configClass, String servletName, String ... urlMappings){
-		// Create the dispatcher servletRegistrationBean's Spring application context
+		// Create the dispatchers servletRegistrationBean's Spring application context
 		AnnotationConfigWebApplicationContext dispatcherContext =
 				new AnnotationConfigWebApplicationContext();
 		dispatcherContext.register(configClass);
