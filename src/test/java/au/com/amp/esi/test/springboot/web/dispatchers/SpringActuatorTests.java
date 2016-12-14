@@ -33,13 +33,17 @@ public class SpringActuatorTests {
 	@Value("${local.management.port}")
 	private int mgt;
 
+	@Value("${management.context-path}")
+	private String contextPath;
+
+
 	@Autowired
 	private TestRestTemplate testRestTemplate;
 
 
 	@Test
 	public void shouldReturn200WhenSendingRequestToManagementEndpoint() throws Exception {
-		String testUrl = "http://localhost:" + this.mgt + "/info";
+		String testUrl = "http://localhost:" + this.mgt +  contextPath + "/info";
 		log.info("test url for shouldReturn200WhenSendingRequestToManagementEndpoint is: {}", testUrl);
 		@SuppressWarnings("rawtypes")
 		ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(testUrl, Map.class);
